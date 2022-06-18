@@ -15,13 +15,15 @@ function Main({selected, countries, stats, route, setSelected}){
     <header>
         <div className="top-nav">
        
-              {selected.flag == null? <div className='country'></div> :  
+               
                 <div className='country'>
-                <a href="" onClick={() => setSelected(null)} className="btn btn-1">Map</a>
-                <img className="country-img" src={selected.flag} alt="" />
+                <a  onClick={() => setSelected({})} className="btn btn-1">Map</a>
+                {
+                selected.flag == null? <div className='country'></div> :<img className="country-img" src={selected.flag} alt="" />
+                }
                 <p className="header-country-name thick-blue-text">{selected.name}</p>
                 </div>
-                 }
+               
         
            <div className="btns">
                <a href="" onClick={() => route(true)} className="btn btn-1">Logout</a>
