@@ -10,13 +10,30 @@ function Login({ route}){
   const [password, setPassword] = useState('');
 
   const onSignup = () => {
-
-    route();
+    let user = {
+      name: firstName + " " + lastName,
+      email: email,
+      phone: phone,
+      password: password,
+    }
+    localStorage.setItem(user.password,JSON.stringify(user));
+    alert(user.name + " " + "Has been successfully added");
+    
+    route(false);
   }
 
   const onLogin = () => {
+   const user = localStorage.getItem(password);
+   const userData = JSON.parse(user);
+    console.log(user);
+    if(user === null){
+      alert("Incorrect credentials");
+    }else if(userData.password === password && userData.email === email){
+      console.log(userData);
+      route(false);
+    }
 
-    route();
+   // route();
 }
  
     return (

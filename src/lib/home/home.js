@@ -8,7 +8,7 @@ function Home(){
   const [selected, setSelected] = useState({});
   const [countries, setCountries] = useState([]);
   const [stats, setStats] = useState({});
-  const [displayLogin, setDisplayLogin] = useState(false);
+  const [displayLogin, setDisplayLogin] = useState(true);
 
 const getCountries = async () => {
   await fetch('https://disease.sh/v3/covid-19/countries')
@@ -66,7 +66,7 @@ useEffect(() =>{
     return (
       <div className="home">
           <Drawer countries={countries} setSelected={setSelected}/>
-          <Main stats={stats} route={setDisplayLogin} countries={countries} selected={selected}/>
+          <Main stats={stats} route={setDisplayLogin} countries={countries} selected={selected} setSelected={setSelected}/>
       </div>
     );
  
